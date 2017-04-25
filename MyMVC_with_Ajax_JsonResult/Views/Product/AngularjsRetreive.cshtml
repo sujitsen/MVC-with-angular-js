@@ -1,0 +1,102 @@
+﻿
+<html>
+       <head>
+           <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        
+           <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+           <script src="https://npmcdn.com/bootstrap@4.0.0-alpha.5/dist/js/bootstrap.min.js"></script>
+           <script src="~/Scripts/jquery-3.1.1.js"></script>
+          
+    <script src="~/Scripts/angular.min.js"></script>
+
+    @*<script src="~/Scripts/angular-route.js"></script>
+           <script src="~/ANGULAR JS/appdata1.js"></script>*@
+         
+        
+           <script src="~/ANGULAR JS/app.js"></script>
+        
+        <style>
+            .btn-space {
+                margin-left: -5%;
+                background-color: cornflowerblue;
+                font-size: large;
+            }
+        </style>  
+           </head>
+               <body >
+                   <div ng-app="myApp">
+                       <div data-ng-controller="myRefferralCtrl">
+                           <table cellpadding="12" class="table table-bordered table-hover">
+                               <tr>
+                                   <td>
+                                       <b>ID</b>
+                                   </td>
+                                   <td>
+                                       <b>Name</b>
+                                   </td>
+                                   <td>
+                                       <b>price</b>
+                                   </td>
+
+                               </tr>
+                               <tr ng-repeat="e in Emp">
+                                   <td>
+                                       {{e.Id}}
+                                   </td>
+                                   <td>
+                                       {{e.Name}}
+                                   </td>
+                                   <td>
+                                       {{e.Price}}
+                                   </td>
+
+                                   <td>
+                                       <input type="button" class="btn btn-warning" value="Update" ng-click="UpdateEmp(e)" />
+                                       <input type="button" class="btn btn-danger" value="Delete" ng-click="DeleteEmp(e)" />
+                                   </td>
+                               </tr>
+                           </table>
+
+
+                           <div class="form-horizontal" role="form">
+                               <div class="container">
+                                   <div class="row">
+                                       <h2>
+                                           <span id="spn">Add New Employee</span>
+                                       </h2>
+                                   </div>
+                                   <div class="row">
+                                       <div class="col-sm-6 col-lg-4">
+                                           <div class="form-group">
+                                               <label class="col-md-4 control-label">Name:</label>
+                                               <div class="col-md-8">
+                                                   <input type="text" class="form-control" id="inputEmail" placeholder="Name" ng-model="Name">
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="col-sm-6 col-lg-4">
+                                           <div class="form-group">
+                                               <label class="col-md-4 control-label">Price:</label>
+                                               <div class="col-md-8">
+                                                   <input type="text" class="form-control" id="inputPassword" placeholder="City" ng-model="Price">
+                                               </div>
+                                           </div>
+                                       </div>
+
+                                   </div>
+                                   <div class="row">
+                                       <div class="col-sm-6 col-lg-4">
+                                           <input type="button" id="btnSave" class="form-control btn-space" value="Submit" ng-click="InsertData()" />
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           <div>
+                               @Html.Hidden("Id")
+
+                           </div>
+                       </div>
+                   </div>
+</body>
+               </html>
+

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TestDMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CHILDREN_DETAILS">
+          <Key>
+            <PropertyRef Name="CHILDREN_ID" />
+          </Key>
+          <Property Name="CHILDREN_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="USER_ID" Type="uniqueidentifier" />
+          <Property Name="CHILDREN_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="CHILD_DOB" Type="date" />
+          <Property Name="CHILDREN_GENDER" Type="char" MaxLength="10" />
+          <Property Name="CREATED_BY_ID" Type="uniqueidentifier" />
+          <Property Name="CREATED_BY_DT" Type="date" />
+          <Property Name="MODIFIED_BY_ID" Type="uniqueidentifier" />
+          <Property Name="MODIFIED_DT" Type="date" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="float" />
+        </EntityType>
+        <EntityContainer Name="TestDMModelStoreContainer">
+          <EntitySet Name="CHILDREN_DETAILS" EntityType="Self.CHILDREN_DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TestDMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CHILDREN_DETAILS">
+          <Key>
+            <PropertyRef Name="CHILDREN_ID" />
+          </Key>
+          <Property Name="CHILDREN_ID" Type="Guid" Nullable="false" />
+          <Property Name="USER_ID" Type="Guid" />
+          <Property Name="CHILDREN_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CHILD_DOB" Type="DateTime" Precision="0" />
+          <Property Name="CHILDREN_GENDER" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="CREATED_BY_ID" Type="Guid" />
+          <Property Name="CREATED_BY_DT" Type="DateTime" Precision="0" />
+          <Property Name="MODIFIED_BY_ID" Type="Guid" />
+          <Property Name="MODIFIED_DT" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+        </EntityType>
+        <EntityContainer Name="TestDMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CHILDREN_DETAILS" EntityType="Self.CHILDREN_DETAILS" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TestDMModelStoreContainer" CdmEntityContainer="TestDMEntities">
+          <EntitySetMapping Name="CHILDREN_DETAILS">
+            <EntityTypeMapping TypeName="TestDMModel.CHILDREN_DETAILS">
+              <MappingFragment StoreEntitySet="CHILDREN_DETAILS">
+                <ScalarProperty Name="CHILDREN_ID" ColumnName="CHILDREN_ID" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CHILDREN_NAME" ColumnName="CHILDREN_NAME" />
+                <ScalarProperty Name="CHILD_DOB" ColumnName="CHILD_DOB" />
+                <ScalarProperty Name="CHILDREN_GENDER" ColumnName="CHILDREN_GENDER" />
+                <ScalarProperty Name="CREATED_BY_ID" ColumnName="CREATED_BY_ID" />
+                <ScalarProperty Name="CREATED_BY_DT" ColumnName="CREATED_BY_DT" />
+                <ScalarProperty Name="MODIFIED_BY_ID" ColumnName="MODIFIED_BY_ID" />
+                <ScalarProperty Name="MODIFIED_DT" ColumnName="MODIFIED_DT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="TestDMModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestDMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CHILDREN_DETAILS">
+    <Key>
+      <PropertyRef Name="CHILDREN_ID" />
+    </Key>
+    <Property Name="CHILDREN_ID" Type="Guid" Nullable="false" />
+    <Property Name="USER_ID" Type="Guid" />
+    <Property Name="CHILDREN_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CHILD_DOB" Type="DateTime" Precision="0" />
+    <Property Name="CHILDREN_GENDER" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="CREATED_BY_ID" Type="Guid" />
+    <Property Name="CREATED_BY_DT" Type="DateTime" Precision="0" />
+    <Property Name="MODIFIED_BY_ID" Type="Guid" />
+    <Property Name="MODIFIED_DT" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Double" />
+  </EntityType>
+  <EntityContainer Name="TestDMEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CHILDREN_DETAILS" EntityType="Self.CHILDREN_DETAILS" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+  </EntityContainer>
+</Schema>
